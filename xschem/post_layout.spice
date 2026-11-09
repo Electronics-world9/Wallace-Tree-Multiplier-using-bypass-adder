@@ -1,0 +1,36 @@
+** sch_path: /home/student/ee5311/Wallace/post_layout.sch
+**.subckt post_layout
+V1 VDD 0 1.8
+V3 b5 0 1.8
+V4 b0 0 1.8
+V2 a0 0 PULSE(0 1.8 5n 100p 100p 20n 30n)
+V5 a1 0 0
+V6 a2 0 0
+V7 a3 0 0
+V8 a4 0 0
+V9 a5 0 1.8
+V10 b1 0 1.8
+V11 b2 0 1.8
+V12 b3 0 1.8
+V13 b4 0 1.8
+x1 VDD a1 P1 a3 P3 P7 a4 P5 a5 a0 a2 b0 b1 b2 b3 0 b4 b5 P9 P11 P0 P2 P10 P8 P6 P4 wallace
+**** begin user architecture code
+
+
+.include wallace_extracted.spice
+.control
+tran 10p 30n
+plot v(a0) v(p11)
+foreach n 0 1 2 3 4 5 6 7 8 9 10 11
+  meas tran r$n TRIG v(a0) VAL=0.9 RISE=1 TARG v(P$n) VAL=0.9 CROSS=1
+  meas tran f$n TRIG v(a0) VAL=0.9 FALL=1 TARG v(P$n) VAL=0.9 CROSS=1 TD=15n
+  let d$n = (r$n + f$n)/2
+  print d$n
+end
+.endc
+
+.lib /cad/share/pdk/sky130B/libs.tech/combined/sky130.lib.spice tt
+**** end user architecture code
+**.ends
+.GLOBAL VDD
+.end

@@ -1,0 +1,15 @@
+# Regenerable LVS / extraction / simulation outputs
+*.lvsdb
+wallace_lvs.spice
+wallace.sim
+wallace.nodes
+magic_drc.out
+*.ext
+*.raw
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~
+*.swp

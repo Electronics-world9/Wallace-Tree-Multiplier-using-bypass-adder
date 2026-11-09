@@ -1,0 +1,12 @@
+** sch_path: /home/student/ee5311/Wallace/nand4.sch
+.subckt nand4 DVDD A B C D Y DGND
+*.PININFO Y:O A:I DVDD:B DGND:B B:I C:I D:I
+XM2 Y B DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1
+XM1 Y A net1 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1
+XM3 net1 B net2 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1
+XM4 net2 C net3 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1
+XM5 net3 D DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1
+XM6 Y A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1
+XM7 Y C DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1
+XM8 Y D DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1
+.ends

@@ -1,0 +1,254 @@
+** sch_path: /home/student/ee5311/wallace/stage2.sch
+**.subckt stage2 DVDD a1 a3 P1 a4 S16 S15 S14 a5 C16 C15 C14 C13 a0 a2 b0 b1 b2 DGND b3 b4 b5 S17 S20 S19 S18 C17 C20 C19 C18 S21
+*+ I6 P0 I5 P2 C21 pn25
+*.ipin a1
+*.ipin a3
+*.ipin a4
+*.ipin a5
+*.ipin a0
+*.ipin a2
+*.ipin b0
+*.ipin b1
+*.ipin b2
+*.ipin b3
+*.ipin b4
+*.ipin b5
+*.opin P0
+*.iopin DGND
+*.iopin DVDD
+*.opin P1
+*.opin C13
+*.opin S14
+*.opin C14
+*.opin S15
+*.opin C15
+*.opin S16
+*.opin C16
+*.opin S17
+*.opin C17
+*.opin S18
+*.opin C18
+*.opin S19
+*.opin C19
+*.opin S20
+*.opin C20
+*.opin S21
+*.opin C21
+*.opin P2
+*.opin I5
+*.opin I6
+*.opin pn25
+x2 DVDD DGND S2 C1 DGND C13 S13 fa
+x3 DVDD DGND I3 S3 C2 C14 S14 fa
+x4 DVDD DGND S4 S5 C3 C15 S15 fa
+x5 DVDD DGND S6 C5 C4 C16 S16 fa
+x6 DVDD DGND S8 C7 C6 C17 S17 fa
+x7 DVDD DGND S10 C9 C8 C18 S18 fa
+x8 DVDD DGND S11 C10 DGND C19 S19 fa
+x9 DVDD DGND S12 C11 DGND C20 S20 fa
+x10 DVDD DGND I10 C12 DGND C21 S21 fa
+x11 S13 P2 DVDD DGND inv
+x12 S7 I5 DVDD DGND inv
+x13 S9 I6 DVDD DGND inv
+x1 DVDD a1 P1 S2 S3 a3 a4 a5 a0 S4 a2 C2 C4 b0 C3 C1 DGND S7 S6 S5 S8 b1 C7 C6 C5 C8 b2 S9 S11 S10 S12 C11 C10 C9 C12 b3 I10 I3 P0
++ b4 pn25 b5 stage1
+**.ends
+
+* expanding   symbol:  fa.sym # of pins=7
+** sym_path: /home/student/ee5311/wallace/fa.sym
+** sch_path: /home/student/ee5311/wallace/fa.sch
+.subckt fa DVDD DGND A B CIN COUTB SUMB
+*.opin COUTB
+*.ipin CIN
+*.iopin DVDD
+*.iopin DGND
+*.opin SUMB
+*.ipin B
+*.ipin A
+XM3 SUMB CIN net4 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM1 net2 A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM2 net1 B net2 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM4 SUMB CIN net1 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM5 net4 B net3 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM6 net3 A DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM7 net5 A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM8 net5 B DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM9 net5 CIN DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM10 SUMB COUTB net5 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM11 net6 A DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM12 net6 B DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM13 net6 CIN DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM14 SUMB COUTB net6 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM15 COUTB CIN net10 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM16 net7 A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM17 COUTB B net7 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM18 COUTB CIN net9 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM19 COUTB B net8 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM20 net8 A DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM21 net9 A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM22 net9 B DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM23 net10 A DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM24 net10 B DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+.ends
+
+
+* expanding   symbol:  inv.sym # of pins=4
+** sym_path: /home/student/ee5311/wallace/inv.sym
+** sch_path: /home/student/ee5311/wallace/inv.sch
+.subckt inv A Y DVDD DGND
+*.opin Y
+*.ipin A
+*.iopin DVDD
+*.iopin DGND
+XM2 Y A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM1 Y A DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+.ends
+
+
+* expanding   symbol:  stage1.sym # of pins=42
+** sym_path: /home/student/ee5311/wallace/stage1.sym
+** sch_path: /home/student/ee5311/wallace/stage1.sch
+.subckt stage1 DVDD a1 S1 S2 S3 a3 a4 a5 a0 S4 a2 C2 C4 b0 C3 C1 DGND S7 S6 S5 S8 b1 C7 C6 C5 C8 b2 S9 S11 S10 S12 C11 C10 C9 C12
++ b3 I10 I3 P0 b4 pn25 b5
+*.iopin DVDD
+*.iopin DGND
+*.ipin a0
+*.ipin b0
+*.ipin a1
+*.ipin a2
+*.ipin a3
+*.ipin a4
+*.ipin a5
+*.ipin b1
+*.ipin b2
+*.ipin b3
+*.ipin b4
+*.ipin b5
+*.opin S1
+*.opin C1
+*.opin S2
+*.opin C2
+*.opin S3
+*.opin C3
+*.opin S4
+*.opin C4
+*.opin S5
+*.opin C5
+*.opin S6
+*.opin C6
+*.opin S7
+*.opin C7
+*.opin S8
+*.opin C8
+*.opin S9
+*.opin C9
+*.opin S10
+*.opin C10
+*.opin S11
+*.opin C11
+*.opin S12
+*.opin C12
+*.opin pn25
+*.opin P0
+*.opin I3
+*.opin I10
+x1 DVDD a0 b0 pn00 DGND nand2
+x2 DVDD a1 b0 pn10 DGND nand2
+x3 DVDD a2 b0 pn20 DGND nand2
+x4 DVDD a3 b0 pn30 DGND nand2
+x5 DVDD a4 b0 pn40 DGND nand2
+x6 DVDD a5 b0 pn50 DGND nand2
+x7 DVDD a0 b1 pn01 DGND nand2
+x8 DVDD a1 b1 pn11 DGND nand2
+x9 DVDD a2 b1 pn21 DGND nand2
+x10 DVDD a3 b1 pn31 DGND nand2
+x11 DVDD a4 b1 pn41 DGND nand2
+x12 DVDD a5 b1 pn51 DGND nand2
+x13 DVDD a0 b2 pn02 DGND nand2
+x14 DVDD a1 b2 pn12 DGND nand2
+x15 DVDD a2 b2 pn22 DGND nand2
+x16 DVDD a3 b2 pn32 DGND nand2
+x17 DVDD a4 b2 pn42 DGND nand2
+x18 DVDD a5 b2 pn52 DGND nand2
+x19 DVDD a0 b3 pn03 DGND nand2
+x20 DVDD a1 b3 pn13 DGND nand2
+x21 DVDD a2 b3 pn23 DGND nand2
+x22 DVDD a3 b3 pn33 DGND nand2
+x23 DVDD a4 b3 pn43 DGND nand2
+x24 DVDD a5 b3 pn53 DGND nand2
+x25 DVDD a0 b4 pn04 DGND nand2
+x26 DVDD a1 b4 pn14 DGND nand2
+x27 DVDD a2 b4 pn24 DGND nand2
+x28 DVDD a3 b4 pn34 DGND nand2
+x29 DVDD a4 b4 pn44 DGND nand2
+x30 DVDD a5 b4 pn54 DGND nand2
+x31 DVDD a0 b5 pn05 DGND nand2
+x32 DVDD a1 b5 pn15 DGND nand2
+x33 DVDD a2 b5 pn25 DGND nand2
+x34 DVDD a3 b5 pn35 DGND nand2
+x35 DVDD a4 b5 pn45 DGND nand2
+x36 DVDD a5 b5 pn55 DGND nand2
+x37 DVDD DGND pn10 pn01 DVDD C1 S1 fa
+x38 DVDD DGND pn20 pn11 pn02 C2 S2 fa
+x39 DVDD DGND pn30 pn21 pn12 C3 S3 fa
+x40 DVDD DGND pn40 pn31 pn22 C4 S4 fa
+x41 DVDD DGND pn13 pn04 DVDD C5 S5 fa
+x42 DVDD DGND pn50 pn41 pn32 C6 S6 fa
+x43 DVDD DGND pn23 pn14 pn05 C7 S7 fa
+x44 DVDD DGND pn51 pn42 pn33 C8 S8 fa
+x45 DVDD DGND pn24 pn15 DVDD C9 S9 fa
+x46 DVDD DGND pn52 pn43 pn34 C10 S10 fa
+x47 DVDD DGND pn53 pn44 pn35 C11 S11 fa
+x48 DVDD DGND pn54 pn45 DVDD C12 S12 fa
+x49 pn00 P0 DVDD DGND inv
+x50 pn03 I3 DVDD DGND inv
+x51 pn55 I10 DVDD DGND inv
+.ends
+
+
+* expanding   symbol:  nand2.sym # of pins=5
+** sym_path: /home/student/ee5311/wallace/nand2.sym
+** sch_path: /home/student/ee5311/wallace/nand2.sch
+.subckt nand2 DVDD A B Y DGND
+*.opin Y
+*.ipin A
+*.iopin DVDD
+*.iopin DGND
+*.ipin B
+XM2 Y A DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM1 Y A net1 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM3 net1 B DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM7 Y B DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+.ends
+
+.end

@@ -1,0 +1,16 @@
+** sch_path: /home/student/ee5311/Wallace/mux2.sch
+.subckt mux2 DVDD S A0 A1 X DGND
+*.PININFO DVDD:B DGND:B A0:I A1:I S:I X:O
+XM2 X net1 DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.00 nf=1
+XM1 X net1 DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1
+XM3 net2 S DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1
+XM4 net1 A0 net2 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1
+XM5 Sb S DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1
+XM6 Sb S DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1
+XM7 net1 A0 net3 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1
+XM8 net3 Sb DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1
+XM9 net4 Sb DVDD DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1
+XM10 net1 A1 net4 DVDD sky130_fd_pr__pfet_01v8 L=0.15 W=0.42 nf=1
+XM11 net1 A1 net5 DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1
+XM12 net5 S DGND DGND sky130_fd_pr__nfet_01v8 L=0.15 W=0.42 nf=1
+.ends
